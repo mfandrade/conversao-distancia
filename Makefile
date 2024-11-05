@@ -5,4 +5,7 @@ run:
 	docker container run -p 5000:5000 xxx
 
 clean:
-	deactivate
+	@if [ -n "$(VIRTUAL_ENV)" ]; then \
+		deactivate; \
+	fi
+	@rm -rf __pycache__ */__pycache__ *.pyc *.pyo
